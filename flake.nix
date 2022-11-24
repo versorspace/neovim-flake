@@ -226,6 +226,12 @@
       url = "git+https://git.sr.ht/~ecmma/tree-sitter-hare";
       flake = false;
     };
+
+    # tpope surround
+    vim-surround = {
+      url = "github:tpope/vim-surround";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -276,6 +282,7 @@
       "rust-tools"
       "onedark"
       "hare-vim"
+      "vim-surround"
     ];
 
     pluginOverlay = lib.buildPluginOverlay;

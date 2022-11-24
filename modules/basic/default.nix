@@ -138,7 +138,7 @@ in {
       vim.splitBelow = mkDefault true;
       vim.splitRight = mkDefault true;
 
-      vim.startPlugins = with pkgs.neovimPlugins; [plenary-nvim];
+      vim.startPlugins = with pkgs.neovimPlugins; [plenary-nvim vim-surround];
 
       vim.nmap =
         if (cfg.disableArrows)
