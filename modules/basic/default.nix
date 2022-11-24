@@ -108,6 +108,14 @@ in {
       type = types.bool;
       description = "New splits will open to the right";
     };
+    ignoreCase = mkOption {
+      type = types.bool;
+      description = "Ignore case when performing search";
+    };
+    smartCase = mkOption {
+      type = types.bool;
+      description = "Override ignore case if search patterns contains upper case characters";
+    };
   };
 
   config = (
@@ -137,6 +145,8 @@ in {
       vim.mapTimeout = mkDefault 500;
       vim.splitBelow = mkDefault true;
       vim.splitRight = mkDefault true;
+      vim.ignoreCase = mkDefault false;
+      vim.smartCase = mkDefault false;
 
       vim.startPlugins = with pkgs.neovimPlugins; [plenary-nvim vim-surround];
 
@@ -235,6 +245,12 @@ in {
         ${writeIf cfg.colourTerm ''
           set termguicolors
           set t_Co=256
+        ''}
+        ${writeIf cfg.ignoreCase ''
+          set ignorecase
+        ''}
+        ${writeIf cfg.smartCase ''
+          set smartcase
         ''}
       '';
     }

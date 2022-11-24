@@ -3,7 +3,8 @@
     setup = { style ? "dark" }: ''
       -- OneDark theme
       require('onedark').setup {
-        style = "${style}"
+        style = "${style}",
+        transparent = "true",
       }
       require('onedark').load()
     '';

@@ -317,6 +317,33 @@
       config = {
         vim.viAlias = false;
         vim.vimAlias = true;
+        vim.lineNumberMode = "number";
+        vim.ignoreCase = true;
+        vim.smartCase = true;
+        vim.nnoremap = {
+          # tab movement
+          "H" = ":tabprev<CR>";
+          "L" = ":tabnext<CR>";
+        };
+        vim.vnoremap = {
+          # copying
+          "<C-c>" = "\"+y";
+          "cy" = "\"+y";
+        };
+        vim.inoremap = {
+          # copying
+          "<C-A>" = "<Home>";
+          "<C-B>" = "<Left>";
+          "<C-E>" = "<End>";
+          "<C-F>" = "<Right>";
+          "<M-B>" = "<C-Left>";
+          "<M-F>" = "<C-Right>";
+          "<C-K>" = "<Esc>lDa>";
+          "<C-U>" = "<Esc>d0xi";
+          "<C-Y>" = "<Esc>Pa";
+          "<C-X><C-S>" = "<Esc>:w<CR>a";
+        };
+        # vim.mapLeaderSpace = false;
         vim.lsp = {
           enable = true;
           formatOnSave = true;
